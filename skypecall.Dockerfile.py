@@ -16,7 +16,7 @@ d = DockerFile(base_img='selenium/standalone-chrome', name='astupidbear/skypecal
 
 d.RUN = 'sudo apt-get update && sudo apt-get install -y python3 python3-pip && pip3 install selenium'
 
-d.RUN = 'wget -O ~/skypecall.py https://gist.githubusercontent.com/AStupidBear/ca185624b8a09ea9e7b14026eec0475b/raw/skypecall.py'
+d.RUN = 'wget -O ~/skypecall.py https://raw.githubusercontent.com/AStupidBear/skypecall/master/skypecall.py'
 
 d.ENTRYPOINT = ['python3', '/home/seluser/skypecall.py']
 
