@@ -7,6 +7,7 @@ except ImportError:
 
 import os
 import sys
+import tempfile
 import logging
 
 logging.getLogger('').setLevel(logging.INFO)
@@ -20,6 +21,7 @@ d.RUN = 'wget -O ~/skypecall.py https://raw.githubusercontent.com/AStupidBear/sk
 
 d.ENTRYPOINT = ['python3', '/home/seluser/skypecall.py']
 
+os.chdir(tempfile.mkdtemp())
 d.build_img()
 
 os.system('docker run -it --rm -v /dev/shm:/dev/shm astupidbear/skypecall:latest ' + ' '.join(sys.argv[1:]))
