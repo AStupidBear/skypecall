@@ -37,7 +37,10 @@ driver.find_element(By.ID, "idSIButton9").click()
 time.sleep(20)
 
 # call
-driver.find_element(By.XPATH, '//button[@aria-label="Got it!"]').click()
+try: 
+    driver.find_element(By.XPATH, '//button[@aria-label="Got it!"]').click()
+except Exception as e:
+    print(e)
 driver.find_element(By.XPATH, '//button[@title="Calls"]').click()
 time.sleep(5)
 element = driver.find_element(By.XPATH, '//button[@aria-label="%s, start voice call."]' % args.callto)
